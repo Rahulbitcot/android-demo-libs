@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=mylibrary-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.Rahulbitcot -DartifactId=android-demo-libs -Dversion=1.0 -Dpackaging=aar -DgeneratePom=true
